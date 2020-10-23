@@ -1,0 +1,86 @@
+:root {
+    --main-padding: 30px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /*grid-template-rows: repeat(4, 1fr);*/
+    grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+    grid-template-areas: 
+    "nav nav nav nav"
+    "sidebar main main main"
+    "sidebar content1 content2 content3"
+    "sidebar footer footer footer";
+    gap: 5px;
+    height: 100vh;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+}
+
+nav {
+    grid-area: nav;
+    background: darkslategray;
+    padding: var(--main-padding);
+}
+
+main {
+    grid-area: main;
+    background: purple;
+    padding: var(--main-padding);
+}
+
+#sidebar {
+    grid-area: sidebar;
+    background: blue;
+    padding: var(--main-padding);
+}
+
+#content1 {
+    grid-area: content1;
+    background: green;
+    padding: var(--main-padding);
+}
+
+#content2 {
+    grid-area: content2;
+    background: red;
+    padding: var(--main-padding);
+}
+
+#content3 {
+    grid-area: content3;
+    background: black;
+    padding: var(--main-padding);
+}
+footer {
+    grid-area: footer;
+    background: orange;
+    padding: var(--main-padding);
+}
+
+@media only screen and (max-width: 550px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+        grid-template-areas: 
+        "nav"
+        
+        "main"
+        "content1"
+        "content2"
+        "content3"
+        "footer";
+    }
+    
+    #sidebar {
+        display: none;
+    }
+}
